@@ -4,11 +4,11 @@
 
 # GPT-Load
 
-**A self-hosted AI gateway for multi-channel, multi-credential setups**
+**面向多渠道、多凭据场景的自托管 AI 网关**
 
-API keys, subscription accounts, traffic scheduling, failure handling, request logs, and usage accounting — behind a single entry point.
+把 API Key、订阅账号、流量调度、故障处理、请求日志与用量统计，收进同一个入口。
 
-English · [中文](README_CN.md) · [日本語](README_JP.md) | [Official Website](https://www.gpt-load.com)
+[English](README.md) · 中文 · [日本語](README_JP.md) | [官方网站](https://www.gpt-load.com)
 
 [![Release](https://img.shields.io/github/v/tag/tbphp/gpt-load?filter=v2.*)](https://github.com/tbphp/gpt-load/releases)
 [![Docker](https://img.shields.io/badge/Docker-ghcr.io%2Ftbphp%2Fgpt--load%3A2-2496ED?logo=docker&logoColor=white)](https://github.com/tbphp/gpt-load/pkgs/container/gpt-load)
@@ -22,20 +22,20 @@ English · [中文](README_CN.md) · [日本語](README_JP.md) | [Official Websi
 
 ---
 
-## Sponsors
+## 赞助商
 
-<sub>[Become a sponsor](mailto:tangb7420@gmail.com)</sub>
+<sub>[成为赞助商](mailto:tangb7420@gmail.com)</sub>
 
 <details open>
-<summary>Sponsor details (collapsible)</summary>
+<summary>赞助商详情（可折叠）</summary>
 
-<a href="https://modelflare.dev/sign-up?utm_source=github&amp;utm_campaign=gptload" target="_blank" rel="sponsored noopener noreferrer"><img src="./screenshot/modelflare-banner-en.png" alt="Modelflare"></a>
+<a href="https://modelflare.dev/sign-up?utm_source=github&amp;utm_campaign=gptload" target="_blank" rel="sponsored noopener noreferrer"><img src="./screenshot/modelflare-banner-zh.png" alt="Modelflare"></a>
 
-Thanks to Modelflare for sponsoring this project! Modelflare: Full strength, stable, nothing watered down. Global SOTA models at a lower cost. Operated by US-based Havenbyte LLC, Modelflare supports GPT, Claude, Gemini, Grok, and other leading models through common compatible protocols, plus 40+ image and video models.
+感谢 Modelflare 赞助本项目！Modelflare：满血稳定不掺水，低成本享受全球 SOTA 模型。站点由美国 LLC 主体 Havenbyte LLC 运营，支持 GPT、Claude、Gemini、Grok 等主流模型和常用兼容协议，还支持 40 多种图片和视频模型。
 
-**Cache compensation** is a highlight: selected OpenAI groups (price-first, stable, and premium) guarantee daily cache hit rates of 65%, 75%, or 85%, and if eligible requests fall short, Modelflare refunds the difference, visible on the usage dashboard after settlement.
+**缓存补偿**是一大亮点：部分 OpenAI 价格优先、稳定和高级分组提供每日 65%、75%、85% 的缓存命中率保障，符合条件的请求没达到目标的，平台补偿差额，结算后可在用量看板查看。
 
-**Special offers**: a single top-up of US&#36;20 unlocks the GPT discount group at a 0.015x price multiplier, and a single top-up of US&#36;50 unlocks the Claude discount group at a 0.03x multiplier. Register via <a href="https://modelflare.dev/sign-up?utm_source=github&amp;utm_campaign=gptload" target="_blank" rel="sponsored noopener noreferrer">this exclusive link</a> to get started.
+**特惠活动**：单笔充值 US&#36;20 即可解锁 0.015 倍价格倍率的 GPT 特惠分组，单笔充值 US&#36;50 即可解锁 0.03 倍价格倍率的 Claude 特惠分组。通过<a href="https://modelflare.dev/sign-up?utm_source=github&amp;utm_campaign=gptload" target="_blank" rel="sponsored noopener noreferrer">专属链接</a>注册即可参与。
 
 ---
 
@@ -43,48 +43,48 @@ Thanks to Modelflare for sponsoring this project! Modelflare: Full strength, sta
 <tbody>
 <tr>
 <td width="180"><a href="https://ofox.ai/?utm_source=github&amp;utm_medium=sponsorship&amp;utm_content=gpt_load" target="_blank" rel="noopener noreferrer"><img src="./screenshot/ofoxai.svg" alt="OfoxAI" width="150"></a></td>
-<td><strong>OfoxAI: Text, image, and video AI in one platform</strong><br>OfoxAI is a unified AI API platform bringing together text, image, and video models from multiple providers. With OpenAI-compatible endpoints and native Anthropic and Gemini interfaces, developers can access models for AI applications, agents, and content creation through one platform. <a href="https://ofox.ai/?utm_source=github&amp;utm_medium=sponsorship&amp;utm_content=gpt_load" target="_blank" rel="noopener noreferrer">Explore OfoxAI models and APIs →</a></td>
+<td><strong>OfoxAI：一个平台，连接文本、图像与视频 AI</strong><br>OfoxAI 是统一的 AI API 平台，汇集多家文本、图像和视频模型，支持 OpenAI 兼容接口及 Anthropic、Gemini 原生接口。开发者可通过一个平台为 AI 应用、智能体和内容创作接入模型，按任务选择合适的能力。 <a href="https://ofox.ai/?utm_source=github&amp;utm_medium=sponsorship&amp;utm_content=gpt_load" target="_blank" rel="noopener noreferrer">探索 OfoxAI 模型与 API →</a></td>
 </tr>
 <tr>
 <td width="180"><a href="https://www.packyapi.ai/register?aff=ahiS" target="_blank" rel="sponsored noopener noreferrer"><picture><source media="(prefers-color-scheme: dark)" srcset="./screenshot/packycode-dark.png"><source media="(prefers-color-scheme: light)" srcset="./screenshot/packycode-light.png"><img src="./screenshot/packycode-light.png" alt="PackyCode" width="150"></picture></a></td>
-<td><strong>PackyCode</strong><br>Access leading AI models through PackyCode with one API endpoint and one API key. Enjoy fast, reliable access with automatic failover and dedicated high-speed routes for Codex and Claude Code. Get started with $1 in free credits, a discount on your first top-up, and savings of up to 80% on eligible routes. Pay in RMB with no currency conversion markups or extra top-up fees. <a href="https://www.packyapi.ai/register?aff=ahiS" target="_blank" rel="sponsored noopener noreferrer">Sign up through the link and start building today.</a></td>
+<td><strong>PackyCode</strong><br>PackyCode 是一家稳定、高效的 API 中转服务商。一句话接入主流大模型。统一域名、统一密钥、智能容灾切换，97% 可用性。人民币1:1充值，无汇率无手续费坑，新用户首充立享折扣 + $1免费体验额度，多分组折扣低至 2 折起，提供专属Codex/Claude Code高速通道。<a href="https://www.packyapi.ai/register?aff=ahiS" target="_blank" rel="sponsored noopener noreferrer">点此链接注册，立即开始使用！</a></td>
 </tr>
 <tr>
 <td width="180"><a href="https://sidrune.ai/register?source=github&amp;campaign=gptload&amp;promo=gptload" target="_blank" rel="sponsored noopener noreferrer"><img src="./screenshot/sidrune-ai.png" alt="Sidrune AI" width="150"></a></td>
-<td><strong>One entry point to connect and manage the world's leading AI models</strong><br>Sidrune AI serves individual developers, technical teams, and enterprises with a unified API for connecting to and managing leading AI models worldwide. Dynamic multi-route scheduling improves availability, while model performance, response times, and costs remain transparent and easy to review. Depending on the model and route, API calls can cost 40%–98% less than official or benchmark prices. Visit and sign up now to receive $3 in API credits. (<a href="https://sidrune.ai/register?source=github&amp;campaign=gptload&amp;promo=gptload" target="_blank" rel="sponsored noopener noreferrer">Dedicated link</a>)</td>
+<td><strong>一个入口，接入并管理全球主流AI模型</strong><br>Sidrune AI面向个人开发者、技术团队与企业，通过统一API接入并管理全球主流AI模型；通过多线路动态调度提升可用性，模型表现、响应时间与费用透明可查。根据不同模型与线路，API调用成本较官方或基准价格可降低40%—98%。立即访问并注册，即可获得 $3 API 额度。（<a href="https://sidrune.ai/register?source=github&amp;campaign=gptload&amp;promo=gptload" target="_blank" rel="sponsored noopener noreferrer">专属链接</a>）</td>
 </tr>
 <tr>
 <td width="180"><a href="https://www.axisnow.io/zh"><img src="./screenshot/axisnow.jpg" alt="AxisNow" width="150"></a></td>
-<td>Protect and accelerate websites and APIs, <strong>serving users in mainland China</strong> and around the world, and extend acceleration and security capabilities to native/mobile apps through a client SDK — <strong>self-built private-deployment CDN | subscription-based high-protection CDN | an independently controllable, flexibly composable CDN network.</strong></td>
+<td>保护并加速网站与 API，<strong>兼顾中国大陆</strong>及全球的访问体验，并通过客户端 SDK，将加速与安全能力延伸至原生/移动 App — <strong>自建私有部署 CDN｜订阅式高防 CDN｜自主可控、灵活组合的 CDN 网络。</strong></td>
 </tr>
 <tr>
 <td width="180"><a href="https://go.apimart.ai/gh-gpt-load"><img src="./screenshot/apimart.png" alt="APIMart" width="150"></a></td>
-<td>Thanks to APIMart for sponsoring this project! APIMart is a low-cost API platform for AI image &amp; video generation — GPT-Image-2 from $0.006/image, 160+ images per dollar. One async API covers both image and video: submit a task, get an ID, fetch results via polling or callback. Batch tens of thousands of images without timeouts, switch models without changing code. Pay-as-you-go with no monthly fee — <a href="https://go.apimart.ai/gh-gpt-load">sign up here</a> to get started.</td>
+<td>感谢 APIMart 赞助了本项目！APIMart 是专注 AI 图片/视频生成的低价 API 平台，GPT-Image-2 低至 $0.006/张，1 美元可出图 160+ 张。图片、视频一套异步 API 通吃，提交任务拿 ID、回调取结果，跑批万张不超时、换模型不改代码。按量付费、无月费，通过<a href="https://go.apimart.ai/gh-gpt-load">此注册链接</a>注册即可开用。</td>
 </tr>
 </tbody>
 </table>
 
 </details>
 
-## Why GPT-Load
+## 为什么选择 GPT-Load
 
-Your application only needs one base URL and one AccessKey. Providers, accounts, credentials, models, and routing policy are all configured in the management UI.
+应用只需要配置一个地址和一个 AccessKey。后面的服务商、账号、凭据、模型与路由策略，全部在管理界面里完成。
 
-<img src="./screenshot/architecture-overview.svg" alt="GPT-Load unified access and upstream routing architecture" width="860">
+<img src="./screenshot/architecture-overview.svg" alt="GPT-Load 统一接入与上游分流架构图" width="860">
 
-- **One gateway, native protocols** — Manage official APIs, cloud platforms, model services, and compatible relays together while clients keep their OpenAI, Anthropic, or Gemini native interfaces.
-- **One mechanism for API keys and subscriptions** — Codex, Claude, Antigravity, Grok, and API-key channels share credential management, scheduling, and health handling.
-- **Scheduling and failure isolation built in** — Multi-credential scheduling, configurable weights, retries, cooldown, blacklisting, and session affinity reduce the impact of overloaded or failing credentials.
-- **Observable, self-hosted, and simple to deploy** — Inspect health, routes, logs, usage, and cost estimates in an embedded UI backed by SQLite, MySQL, or PostgreSQL with local credential encryption.
+- **统一入口，保留原生协议** — 官方 API、云平台、模型服务和兼容中转统一管理；客户端继续使用 OpenAI、Anthropic 或 Gemini 原生接口，无需改造代码。
+- **统一管理 API Key 与订阅账号** — Codex、Claude、Antigravity、Grok 等订阅渠道与 API Key 渠道共享凭据管理、调度和健康体系。
+- **内置调度与故障隔离** — 多凭据调度、可配置权重、重试、冷却、黑名单与会话亲和，降低单个凭据过载或失效的影响。
+- **可观测、易部署、数据自持** — 提供健康、路由、日志、用量与成本估算；单个 Go 二进制内嵌管理界面，支持 SQLite、MySQL、PostgreSQL 和本地凭据加密。
 
-## Quick start
+## 快速开始
 
 > [!WARNING]
-> If you are using 1.x, read [Moving from 1.x](#moving-from-1x) first. 2.0 cannot open, import, or migrate 1.x data in place.
+> 如果你正在使用 1.x，请先阅读[从 1.x 切换](#从-1x-切换)。2.0 不能打开、导入或原地迁移 1.x 数据。
 
-### 1. Start the service
+### 1. 启动服务
 
-Requires Docker and Docker Compose.
+需要 Docker 与 Docker Compose。
 
 ```bash
 git clone --depth 1 https://github.com/tbphp/gpt-load.git
@@ -94,83 +94,83 @@ cp .env.example .env
 docker compose up -d
 ```
 
-Confirm the service is up:
+确认服务已启动：
 
 ```bash
 curl --fail http://127.0.0.1:3001/health
 ```
 
-The first start generates a management key. Read it and store it safely:
+首次启动会自动生成管理密钥，读取并妥善保存：
 
 ```bash
 docker compose exec gpt-load sh -c 'cat /app/data/auth.key'
 ```
 
-Open <http://127.0.0.1:3001> and sign in to the console with that key.
+打开 <http://127.0.0.1:3001>，用该密钥登录控制台。
 
-> You can also set `AUTH_KEY` explicitly in `.env` before starting. By default the service listens on the loopback address only and is not exposed to the internet.
+> 也可以在启动前通过 `.env` 里的 `AUTH_KEY` 显式指定管理密钥。默认只监听本机地址，不会直接暴露到公网。
 
-### 2. Initial configuration
+### 2. 完成首次配置
 
-Initial setup takes three steps:
+首次配置只需三步：
 
-1. **Add a channel** — Choose an upstream service and add one or more API keys. For subscription channels, complete the OAuth flow or import credentials as prompted.
-2. **Create a group** — Pick a channel, then configure available models and runtime policy.
-3. **Create an AccessKey** — Set the groups and client protocols it may use, then give the generated AccessKey to your application.
+1. **添加渠道** — 选择上游服务，填入一个或多个 API Key；订阅渠道按界面提示完成 OAuth 授权或导入凭据。
+2. **创建 Group** — 选择渠道，配置可用模型与运行策略。
+3. **创建 AccessKey** — 设置允许访问的 Group 与客户端协议，把生成的 AccessKey 交给应用使用。
 
 <details>
-<summary>OAuth callback ports for subscription channels</summary>
+<summary>订阅渠道的 OAuth 回调端口</summary>
 
-The Codex, Claude, and Antigravity OAuth clients use fixed callback ports. Compose publishes them on the address configured by `HOST`, which defaults to `127.0.0.1`; setting `HOST=0.0.0.0` also publishes these callback ports on all host interfaces. Because the ports are fixed by the upstream clients, only one default Compose instance can run on a host at a time.
+Codex、Claude、Antigravity 的 OAuth 客户端使用固定回调端口。Compose 会把它们发布到 `HOST` 配置的地址，默认是 `127.0.0.1`；设置 `HOST=0.0.0.0` 时，这些回调端口也会发布到宿主机的全部网络接口。因为端口由上游客户端固定，同一台机器同一时刻只能运行一个默认 Compose 实例。
 
-When working over SSH or from a remote browser, the browser's `localhost` may not reach GPT-Load — paste the full callback URL into the authorization dialog to finish the flow.
+如果通过 SSH 或远程浏览器操作，浏览器的 `localhost` 可能到不了 GPT-Load —— 此时把完整回调 URL 复制到授权弹窗里即可完成流程。
 
 </details>
 
-## Screenshots
+## 界面预览
 
-**Groups** — View channels, models, credential counts, traffic, and health in one place
+**分组总览** — 统一查看渠道、模型、凭据数量、流量与健康状态
 
-<img src="./screenshot/groups-en-US.png" alt="GPT-Load modern groups overview" width="860">
+<img src="./screenshot/groups-zh-CN.png" alt="GPT-Load 新版分组总览" width="860">
 
-**Usage statistics** — Review request trends, cache hit rate, token categories, and cost estimates
+**用量统计** — 查看请求趋势、缓存命中率、Token 分类与成本估算
 
-<img src="./screenshot/usage-en-US.png" alt="GPT-Load modern usage statistics" width="860">
+<img src="./screenshot/usage-zh-CN.png" alt="GPT-Load 新版用量统计" width="860">
 
-## Scope
+## 支持范围
 
-### Client protocols
+### 客户端协议
 
-| Protocol                | Main entry                                                         |
+| 协议                    | 主要入口                                                           |
 | ----------------------- | ------------------------------------------------------------------ |
 | OpenAI Chat Completions | `POST /v1/chat/completions`                                        |
-| OpenAI Responses        | `/v1/responses` and its resource paths                             |
+| OpenAI Responses        | `/v1/responses` 及其资源路径                                       |
 | OpenAI Images           | `POST /v1/images/...`                                              |
 | OpenAI Embeddings       | `POST /v1/embeddings`                                              |
 | Rerank                  | `POST /v1/rerank`                                                  |
-| Mistral native          | `/v1/ocr`, `/v1/audio/...` |
+| Mistral 原生            | `/v1/ocr`、`/v1/audio/...` |
 | Anthropic Messages      | `POST /v1/messages`                                                |
 | Gemini                  | `/v1beta/models/...`                                               |
 | Gemini Embeddings       | `POST /v1beta/models/{model}:embedContent` / `:batchEmbedContents` |
 
-### Built-in channels
+### 内置渠道
 
-- **Official and cloud** — OpenAI, Anthropic, Gemini, xAI, Azure OpenAI, AWS Bedrock, Google Vertex AI
-- **Model services** — DeepSeek, Moonshot AI, SiliconFlow, Zhipu AI, Alibaba, Volcengine, OpenRouter, Cline, Groq, Cerebras, Mistral, Nebius, Parasail, Wafer, Hugging Face (Chat), Cohere (text reranking), OpenCode Go, OpenCode Zen
-- **Subscription** — Codex, Claude, Antigravity, Grok
-- **Custom** — OpenAI Compatible (any compatible relay)
+- **官方与云平台**：OpenAI、Anthropic、Gemini、xAI、Azure OpenAI、AWS Bedrock、Google Vertex AI
+- **常用模型服务**：DeepSeek、Moonshot AI、SiliconFlow、Zhipu AI、Alibaba、Volcengine、OpenRouter、Cline、Groq、Cerebras、Mistral、Nebius、Parasail、Wafer、Hugging Face（聊天）、Cohere（文本重排序）、OpenCode Go、OpenCode Zen
+- **订阅渠道**：Codex、Claude、Antigravity、Grok
+- **自定义**：OpenAI Compatible（任意兼容中转）
 
-## Deployment and data
+## 部署与数据
 
-Docker Compose uses application-managed SQLite by default. Data lives in the `gpt-load-data` named volume and includes the database, `auth.key`, and `encryption.key`.
+Docker Compose 默认使用应用管理的 SQLite，数据存放在 `gpt-load-data` 具名卷中，包含数据库、`auth.key` 和 `encryption.key`。
 
 > [!IMPORTANT]
-> `encryption.key` decrypts channel credentials. When backing up or migrating, the database and the key **must be kept together**. Once the key is lost or replaced, existing encrypted credentials cannot be recovered, and this version does not support master key rotation.
+> `encryption.key` 用于解密渠道凭据。备份或迁移时，数据库和密钥**必须一起保存**；密钥丢失或被替换后，已有加密凭据无法恢复，且当前版本不支持主密钥轮换。
 
 <details>
-<summary>Using an external database</summary>
+<summary>使用外部数据库</summary>
 
-Use the unified `DATABASE_DSN` to connect SQLite, MySQL, or PostgreSQL:
+通过统一的 `DATABASE_DSN` 连接 SQLite、MySQL 或 PostgreSQL：
 
 ```text
 mysql://user:password@db.example:3306/gpt_load?charset=utf8mb4&collation=utf8mb4_bin
@@ -179,20 +179,20 @@ postgres://user:password@db.example:5432/gpt_load?sslmode=require
 
 </details>
 
-Common operations:
+常用运维命令：
 
 ```bash
-docker compose logs -f      # view logs
-docker compose pull && docker compose up -d   # update to the latest 2.x image
-docker compose stop         # stop the service
+docker compose logs -f      # 查看日志
+docker compose pull && docker compose up -d   # 更新到最新 2.x 镜像
+docker compose stop         # 停止服务
 ```
 
-The official Compose file uses `ghcr.io/tbphp/gpt-load:2`. Before GA, `2` tracks verified 2.0 Beta and RC releases; after GA, it tracks stable 2.x releases only. Exact image tags omit the Git tag's `v` prefix (for example, `2.0.0-beta.25`), while `2.0-beta` remains the 2.0 Beta channel. `latest` remains on 1.x.
+官方 Compose 使用 `ghcr.io/tbphp/gpt-load:2`。GA 前，`2` 跟随已验证的 2.0 Beta 和 RC；GA 后只跟随稳定的 2.x。镜像精确标签会去掉 Git tag 的 `v` 前缀（例如 `2.0.0-beta.25`），`2.0-beta` 则保留为 2.0 Beta 通道；`latest` 继续留在 1.x。
 
 <details>
-<summary>Using a native binary</summary>
+<summary>使用原生二进制</summary>
 
-Download the build for your platform from [GitHub Releases](https://github.com/tbphp/gpt-load/releases), and verify it against the bundled `SHA256SUMS` first:
+从 [GitHub Releases](https://github.com/tbphp/gpt-load/releases) 下载对应平台的文件，建议先用随附的 `SHA256SUMS` 校验：
 
 ```bash
 chmod +x ./gpt-load-linux-amd64
@@ -200,72 +200,72 @@ chmod +x ./gpt-load-linux-amd64
 HOST=127.0.0.1 DATA_DIR=./data ./gpt-load-linux-amd64
 ```
 
-Then open <http://127.0.0.1:3001>. Portable builds are provided for five targets across Linux, macOS (amd64 / arm64), and Windows; `gpt-load-windows-amd64.exe` keeps running in the foreground as before.
+启动后访问 <http://127.0.0.1:3001>。提供 Linux、macOS（amd64 / arm64）与 Windows 共五个平台的便携构建；`gpt-load-windows-amd64.exe` 继续以前台模式运行。
 
-Windows desktop users can instead download `gpt-load-windows-setup.exe`. After one administrator approval, Setup installs and starts a low-privilege Windows service, enables automatic startup, and creates desktop and Start Menu shortcuts to the GPT-Load management page. Setup displays the generated management key before it finishes; save it before closing the page. The protected copy remains at `%ProgramData%\GPT-Load\data\auth.key`. Service configuration and its `.env` live in `%ProgramData%\GPT-Load`, with persistent data in `%ProgramData%\GPT-Load\data`.
+Windows 普通用户可改为下载 `gpt-load-windows-setup.exe`。双击并确认管理员权限后，安装器会注册并启动低权限 Windows 服务、设置开机启动，并创建桌面和开始菜单中的 GPT-Load 管理页面快捷方式。安装过程中会显示首次生成的管理密钥，请在关闭页面前保存；密钥仍保存在 `%ProgramData%\GPT-Load\data\auth.key`。服务配置目录为 `%ProgramData%\GPT-Load` 并从其中读取 `.env`，数据目录为 `%ProgramData%\GPT-Load\data`。
 
-Installing a newer Setup stops the service gracefully before updating it. Windows uninstall removes the program and service but preserves data. Advanced users can still manage an installed service with `gpt-load-windows-amd64.exe service start|stop|restart|status`.
+覆盖安装会先优雅停止服务再更新，Windows 卸载会移除程序和服务但保留数据。高级用户仍可使用 `gpt-load-windows-amd64.exe service start|stop|restart|status` 管理已安装服务。
 
 </details>
 
-### Environment configuration
+### 环境配置
 
-At startup, the application reads `.env` in the current directory; existing process environment variables take precedence. Unless noted otherwise, changes require restarting the process or container; see [`.env.example`](.env.example) for the common configuration template.
+应用启动时读取当前目录的 `.env`，已有的进程环境变量优先。除特别说明外，修改后需要重启进程或容器；常用配置模板见 [`.env.example`](.env.example)。
 
 <details>
-<summary>Show all environment variables</summary>
+<summary>查看全部环境变量</summary>
 
-| Variable | Default | Description |
-| --- | --- | --- |
-| `HOST` | `127.0.0.1` | Native listening address, and the default host address for Compose's main port and OAuth callback ports; Compose always listens on `0.0.0.0` inside the container. |
-| `PORT` | `3001` | HTTP service port, must be `1–65535`; Compose also uses it for the container port, host publishing, and health check. |
-| `BIND_ADDRESS` | Empty, inherits `HOST` | Compose only; overrides the host publishing address for the main service port without changing OAuth callback ports. |
-| `OAUTH_CALLBACK_BIND_ADDRESS` | Empty, inherits `HOST` | Compose only; overrides the host publishing address for the fixed OAuth callback ports `1455`, `54545`, and `51121`. |
-| `GRACEFUL_SHUTDOWN_TIMEOUT` | `10` | Maximum time to wait for requests after a stop signal, positive integer in seconds. |
-| `CONTAINER_STOP_GRACE_PERIOD` | `15s` | Docker duration to wait before Compose force-stops the container; should be longer than `GRACEFUL_SHUTDOWN_TIMEOUT`. |
-| `READ_TIMEOUT` | `60` | HTTP request read timeout, positive integer in seconds. |
-| `IDLE_TIMEOUT` | `120` | HTTP keep-alive idle connection timeout, positive integer in seconds. |
-| `DATA_DIR` | `./data` | Directory for the managed database, `auth.key`, `encryption.key`, and runtime state; official Compose uses `/app/data`, while the Windows Setup service uses `%ProgramData%\GPT-Load\data`. |
-| `DATABASE_DSN` | Empty, uses `${DATA_DIR}/gpt-load.db` | Empty uses application-managed SQLite; non-empty values support SQLite paths or URLs, MySQL URLs, and PostgreSQL URLs, and are treated as operator-managed external databases. Container file paths must be inside a mounted directory. |
-| `DATABASE_MAX_OPEN_CONNECTIONS` | `10` | Maximum open connections for MySQL and PostgreSQL, positive integer. SQLite always uses one connection. |
-| `DATABASE_MAX_IDLE_CONNECTIONS` | `5` | Maximum idle connections for MySQL and PostgreSQL, positive integer and no greater than `DATABASE_MAX_OPEN_CONNECTIONS`. SQLite always uses one connection. |
-| `AUTH_KEY` | Empty, reads or generates `${DATA_DIR}/auth.key` | Bearer key for the management UI and `/api` management API, not a data-plane AccessKey. |
-| `ENCRYPTION_KEY` | Empty, reads or generates `${DATA_DIR}/encryption.key` | Encrypts channel credentials; changing or losing it makes existing credentials undecryptable, so back it up with the database. |
-| `CLIENT_IP_HEADER` | Empty, uses the connection IP | Client IP header, such as `X-Forwarded-For` or `CF-Connecting-IP`; missing or invalid values fall back to the connection IP. Shared by logs, AccessKey IP restrictions, and other IP consumers; supports IPv4/IPv6. Restart after changes. |
-| `TRUSTED_PROXIES` | Empty | Optional comma-separated proxy IPs or CIDRs; applies only with `CLIENT_IP_HEADER`. Empty means trusting the selected header directly, with trust enforced by your deployment. When set, only matching connection peers may supply the header; others use their connection IP. For `X-Forwarded-For`, scan right to left for the first untrusted IP (leftmost if all are trusted); without a list, use the leftmost IP. Other headers accept one IP only. Restart after changes. |
-| `HTTP_PROXY` | Empty | Environment proxy for HTTP upstream requests. |
-| `HTTPS_PROXY` | Empty | Environment proxy for HTTPS upstream requests. |
-| `NO_PROXY` | Empty | Comma-separated hosts, domains, or IPs that bypass the environment proxy. |
-| `LOG_LEVEL` | `info` | Supports `panic`, `fatal`, `error`, `warn`, `warning`, `info`, `debug`, and `trace`; invalid values warn and fall back to `info`. |
-| `LOG_FORMAT` | `text` | Supports `text` and `json`; any other value fails startup. |
-| `MODELS_DEV_AUTO_SYNC_ENABLED` | Unset, initial default `true` | When unset, uses the persisted management UI setting; when set, forces Models.dev auto-sync on or off and makes the same UI option read-only. |
+| 变量                            | 默认值                                      | 说明                                                                                                                                                     |
+| ------------------------------- | ------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `HOST`                          | `127.0.0.1`                                 | Native 模式的监听地址，也是 Compose 主端口和 OAuth 回调端口的默认宿主机发布地址；Compose 容器内部固定监听 `0.0.0.0`。                                    |
+| `PORT`                          | `3001`                                      | HTTP 服务端口，必须为 `1–65535`；Compose 同时用于容器端口、宿主机发布端口和健康检查。                                                                    |
+| `BIND_ADDRESS`                  | 空，继承 `HOST`                             | 仅用于 Compose，单独覆盖主服务端口的宿主机发布地址，不改变 OAuth 回调端口。                                                                              |
+| `OAUTH_CALLBACK_BIND_ADDRESS`   | 空，继承 `HOST`                             | 仅用于 Compose，单独覆盖 OAuth 固定回调端口 `1455`、`54545`、`51121` 的宿主机发布地址。                                                                  |
+| `GRACEFUL_SHUTDOWN_TIMEOUT`     | `10`                                        | 收到停止信号后等待请求结束的最长时间，正整数，单位秒。                                                                                                   |
+| `CONTAINER_STOP_GRACE_PERIOD`   | `15s`                                       | Compose 强制停止容器前的等待时间，使用 Docker duration，建议大于 `GRACEFUL_SHUTDOWN_TIMEOUT`。                                                           |
+| `READ_TIMEOUT`                  | `60`                                        | HTTP 请求读取超时，正整数，单位秒。                                                                                                                      |
+| `IDLE_TIMEOUT`                  | `120`                                       | HTTP keep-alive 空闲连接超时，正整数，单位秒。                                                                                                           |
+| `DATA_DIR`                      | `./data`                                    | 托管数据库、`auth.key`、`encryption.key` 和运行状态文件的目录；官方 Compose 固定为 `/app/data`，Windows Setup 服务固定为 `%ProgramData%\GPT-Load\data`。 |
+| `DATABASE_DSN`                  | 空，使用 `${DATA_DIR}/gpt-load.db`          | 空值使用应用托管的 SQLite；非空值支持 SQLite 路径或 URL、MySQL URL、PostgreSQL URL，并视为运维方管理的外部数据库。容器内文件路径必须位于已挂载目录。     |
+| `DATABASE_MAX_OPEN_CONNECTIONS` | `10`                                        | MySQL 和 PostgreSQL 的最大打开连接数，必须为正整数；SQLite 始终使用单连接。                                                                              |
+| `DATABASE_MAX_IDLE_CONNECTIONS` | `5`                                         | MySQL 和 PostgreSQL 的最大空闲连接数，必须为正整数且不大于 `DATABASE_MAX_OPEN_CONNECTIONS`；SQLite 始终使用单连接。                                      |
+| `AUTH_KEY`                      | 空，读取或生成 `${DATA_DIR}/auth.key`       | 管理界面和 `/api` 管理接口的 Bearer 密钥，不是数据面 AccessKey。                                                                                         |
+| `ENCRYPTION_KEY`                | 空，读取或生成 `${DATA_DIR}/encryption.key` | 用于加密渠道凭据；更换或丢失后无法解密已有凭据，必须与数据库一起备份。                                                                                   |
+| `CLIENT_IP_HEADER` | 空，使用连接 IP | 客户端 IP 请求头，如 `X-Forwarded-For` 或 `CF-Connecting-IP`；缺失或无效时回退到连接 IP。统一用于日志、访问密钥 IP 限制等，支持 IPv4/IPv6。修改后重启。 |
+| `TRUSTED_PROXIES` | 空 | 可选，逗号分隔的代理 IP 或 CIDR；仅在设置 `CLIENT_IP_HEADER` 时生效。留空直接信任所选请求头，需由部署环境保证其可信；配置后仅信任匹配的连接来源，否则使用连接 IP。`X-Forwarded-For` 有名单时从右向左取首个不可信 IP（全可信时取最左侧），无名单时取最左侧；其他头只接受单个 IP。修改后重启。 |
+| `HTTP_PROXY`                    | 空                                          | HTTP 上游请求的环境代理。                                                                                                                                |
+| `HTTPS_PROXY`                   | 空                                          | HTTPS 上游请求的环境代理。                                                                                                                               |
+| `NO_PROXY`                      | 空                                          | 逗号分隔的不经过环境代理的主机、域名或 IP。                                                                                                              |
+| `LOG_LEVEL`                     | `info`                                      | 支持 `panic`、`fatal`、`error`、`warn`、`warning`、`info`、`debug`、`trace`；无效值会告警并回退到 `info`。                                               |
+| `LOG_FORMAT`                    | `text`                                      | 支持 `text`、`json`；其他值会导致启动失败。                                                                                                              |
+| `MODELS_DEV_AUTO_SYNC_ENABLED`  | 未设置，初始默认 `true`                     | 未设置时使用管理界面的持久化设置；设置后强制开启或关闭 Models.dev 自动同步，并使管理界面中的同名选项变为只读。                                           |
 
-Environment proxies apply only when no proxy is specified on the credential, group, or global settings.
+环境代理仅在凭据、Group 和全局设置都未指定代理时生效。
 
 </details>
 
-## Moving from 1.x
+## 从 1.x 切换
 
 > [!WARNING]
-> GPT-Load 2.0 is a complete rewrite. It **cannot** open, import, or migrate 1.x data in place.
+> GPT-Load 2.0 是完整重写的新版本，**不能**打开、导入或原地迁移 1.x 数据。
 
-Deploy 2.0 with its own database, `DATA_DIR`, port, and Docker volume. Cut traffic over only after verification, and keep the original 1.x deployment until the rollback window closes. Documentation for the 1.4.x maintenance line is at the [official docs](https://www.gpt-load.com/docs).
+部署 2.0 时请使用独立的数据库、`DATA_DIR`、端口和 Docker 卷，验证完成后再切换业务流量，并在回滚窗口关闭前保留原 1.x 部署。1.4.x 维护线文档见[官方文档](https://www.gpt-load.com/docs?lang=zh)。
 
-## Open-source dependencies
+## 开源依赖
 
-Some of GPT-Load's capabilities build on these projects, with thanks:
+GPT-Load 的部分能力构建在这些开源项目之上，在此致谢：
 
-| Project                                                     | Role                                                                                 | License    |
-| ----------------------------------------------------------- | ------------------------------------------------------------------------------------ | ---------- |
-| [Bifrost Core](https://github.com/maximhq/bifrost)          | Provider authentication, request/response conversion, streaming, usage normalization | Apache-2.0 |
-| [CLIProxyAPI](https://github.com/router-for-me/CLIProxyAPI) | OAuth and execution adapter for subscription channels                                | MIT        |
-| [Lobe Icons](https://github.com/lobehub/lobe-icons)         | Channel brand icons in the management UI                                             | MIT        |
+| 项目                                                        | 作用                                           | 许可证     |
+| ----------------------------------------------------------- | ---------------------------------------------- | ---------- |
+| [Bifrost Core](https://github.com/maximhq/bifrost)          | 各服务商的认证、请求响应转换、流式与用量归一化 | Apache-2.0 |
+| [CLIProxyAPI](https://github.com/router-for-me/CLIProxyAPI) | 订阅渠道的 OAuth 与执行适配                    | MIT        |
+| [Lobe Icons](https://github.com/lobehub/lobe-icons)         | 管理界面中的渠道品牌图标                       | MIT        |
 
-GPT-Load owns credential storage, account selection, scheduling, retry, health, affinity, logging, and usage policy. Third-party notices are in [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md), full license texts in [`LICENSES/`](LICENSES/), and each release ships a CycloneDX SBOM covering the Go dependency graph.
+GPT-Load 自身负责凭据存储、账号选择、调度、重试、健康、亲和、日志与用量策略。第三方声明见 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)，许可证全文位于 [`LICENSES/`](LICENSES/)，每个 Release 另附覆盖 Go 依赖的 CycloneDX SBOM。
 
-Channel icons identify their respective upstream providers. All trademarks belong to their owners; this project is not affiliated with or endorsed by them.
+各渠道图标用于标识对应的上游服务商，其商标权归各自所有者；本项目与这些服务商没有从属或背书关系。
 
-## Project support
+## 项目支持
 
 <table>
 <tbody>
@@ -278,15 +278,15 @@ Channel icons identify their respective upstream providers. All trademarks belon
 <img src="./screenshot/sponsor-openai-lockup-black.svg" alt="OpenAI" width="120">
 </picture>
 </a>
-<br><sub>Platform support</sub>
+<br><sub>平台支持</sub>
 </td>
 <td align="center" width="33%">
 <a href="https://linux.do"><img src="./screenshot/l.png" alt="LINUX DO" width="120"></a>
-<br><sub>Community support</sub>
+<br><sub>社区支持</sub>
 </td>
 <td align="center" width="33%">
 <a href="https://www.digitalocean.com/?refcode=3d52cff21342&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=badge"><img src="https://web-platforms.sfo2.cdn.digitaloceanspaces.com/WWW/Badge%202.svg" alt="DigitalOcean" width="120"></a>
-<br><sub>Infrastructure support</sub>
+<br><sub>基础设施支持</sub>
 </td>
 </tr>
 </tbody>
@@ -294,4 +294,4 @@ Channel icons identify their respective upstream providers. All trademarks belon
 
 ---
 
-[MIT License](LICENSE) · [Third-party notices](THIRD_PARTY_NOTICES.md) · [Security policy](SECURITY.md)
+[MIT License](LICENSE) · [第三方声明](THIRD_PARTY_NOTICES.md) · [安全政策](SECURITY.md)
