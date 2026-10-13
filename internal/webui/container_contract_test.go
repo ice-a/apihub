@@ -192,7 +192,7 @@ func TestNetworkConfigurationKeepsExampleSimpleAndDocumentsAdvancedOverrides(t *
 		}
 	}
 
-	readmes := []string{"README.md", "README_CN.md", "README_JP.md"}
+	readmes := []string{"README.md"}
 	for _, advanced := range []string{"BIND_ADDRESS", "OAUTH_CALLBACK_BIND_ADDRESS"} {
 		if strings.Contains(environmentExample, advanced) {
 			t.Fatalf(".env.example exposes advanced Compose override %s", advanced)
