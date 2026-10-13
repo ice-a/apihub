@@ -128,6 +128,7 @@ export default {
     settings: { title: '全局设置' },
     import: { title: '导入凭据' },
     login: { title: '登录' },
+    personal: { title: '我的主页' },
   },
   notFound: {
     title: '页面不存在',
@@ -164,5 +165,16 @@ export default {
     saveFailed: '无法保存界面偏好，请允许本站使用浏览器存储后重试。',
     modern: { title: '现代版' },
     classic: { title: '经典版' },
+  },
+  personal: {
+    title: '我的主页',
+    greeting: '你好，{name}',
+    greetingGeneric: '你好',
+    trend: '用量趋势',
+    recentRequests: '最近请求',
+    viewAllLogs: '查看全部',
+    budget: '剩余额度',
+    budgetRemaining: '剩余 {remaining}，共 {limit}',
+    noBudget: '未设置额度上限',
   },
 }

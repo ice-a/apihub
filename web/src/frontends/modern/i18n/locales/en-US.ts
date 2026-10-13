@@ -132,6 +132,7 @@ export default {
     settings: { title: 'Global settings' },
     import: { title: 'Import credentials' },
     login: { title: 'Sign in' },
+    personal: { title: 'My page' },
   },
   notFound: {
     title: 'Page not found',
@@ -168,5 +169,16 @@ export default {
     saveFailed: 'Unable to save your preference. Allow browser storage for this site and retry.',
     modern: { title: 'Modern' },
     classic: { title: 'Classic' },
+  },
+  personal: {
+    title: 'My page',
+    greeting: 'Hello, {name}',
+    greetingGeneric: 'Hello',
+    trend: 'Usage trend',
+    recentRequests: 'Recent requests',
+    viewAllLogs: 'View all',
+    budget: 'Remaining budget',
+    budgetRemaining: 'Remaining {remaining} of {limit}',
+    noBudget: 'No budget limit set',
   },
 }

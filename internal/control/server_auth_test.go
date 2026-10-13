@@ -549,6 +549,57 @@ func TestAuthSessionEndpointAcceptsActiveAccessKeyAndRejectsAdminRoutes(t *testi
 	}
 }
 
+func TestAuthSessionReturnsAccessKeyNameAndCostLimitStatus(t *testing.T) {
+	t.Parallel()
+	initControlI18n(t)
+	fixture := newServiceFixture(t)
+	created, err := fixture.service.CreateAccessKey(t.Context(), AccessKeyCreateRequest{
+		Name: "alice personal key",
+		CostLimitRules: OptionalAccessKeyCostLimitRules{Set: true, Values: []AccessKeyCostLimitRuleRequest{{
+			Kind: "total", LimitUSD: "100",
+		}}},
+	})
+	if err != nil {
+		t.Fatalf("CreateAccessKey() error = %v", err)
+	}
+	// 产生一些用量，使 used > 0，便于校验 remaining 计算。
+	ticket, decision := fixture.accessQuota.Admit(created.ID, time.Now())
+	if !decision.Allowed {
+		t.Fatalf("Admit() = %#v", decision)
+	}
+	fixture.accessQuota.Complete(ticket, 12_000_000_000)
+	engine := gin.New()
+	NewServer(&config.Config{AuthKey: authTestKey}, fixture.service).RegisterRoutes(engine)
+
+	// 访问密钥会话应返回 access_key 与 cost_limit_status。
+	keySession := serveAuthRequest(engine, "/api/auth/session", "192.0.2.61:1234", "Bearer "+created.Key, nil)
+	if keySession.Code != http.StatusOK {
+		t.Fatalf("access key session = %d %s, want 200", keySession.Code, keySession.Body.String())
+	}
+	body := keySession.Body.String()
+	if !strings.Contains(body, `"access_key":{"id":`) ||
+		!strings.Contains(body, `"name":"alice personal key"`) ||
+		!strings.Contains(body, `"cost_limit_status":`) ||
+		!strings.Contains(body, `"limit_usd":"100"`) ||
+		!strings.Contains(body, `"used_usd":"12"`) ||
+		!strings.Contains(body, `"remaining_usd":"88"`) {
+		t.Fatalf("access key session missing expected fields: %s", body)
+	}
+
+	// 管理员会话不应暴露 access_key / cost_limit_status。
+	adminSession := serveAuthRequest(engine, "/api/auth/session", "192.0.2.62:1234", "Bearer "+authTestKey, nil)
+	if adminSession.Code != http.StatusOK {
+		t.Fatalf("admin session = %d %s, want 200", adminSession.Code, adminSession.Body.String())
+	}
+	if strings.Contains(adminSession.Body.String(), `"access_key"`) ||
+		strings.Contains(adminSession.Body.String(), `"cost_limit_status"`) {
+		t.Fatalf(
+			"admin session must not expose access_key/cost_limit_status: %s",
+			adminSession.Body.String(),
+		)
+	}
+}
+
 func TestAccessKeyAuthenticationDoesNotClearPeerFailuresOrLock(t *testing.T) {
 	t.Parallel()
 	initControlI18n(t)

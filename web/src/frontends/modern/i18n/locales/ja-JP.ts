@@ -131,6 +131,7 @@ export default {
     settings: { title: 'グローバル設定' },
     import: { title: '認証情報のインポート' },
     login: { title: 'ログイン' },
+    personal: { title: 'マイページ' },
   },
   notFound: {
     title: 'ページが見つかりません',
@@ -167,5 +168,16 @@ export default {
     saveFailed: '設定を保存できません。このサイトのブラウザストレージを許可してください。',
     modern: { title: 'モダン版' },
     classic: { title: 'クラシック版' },
+  },
+  personal: {
+    title: 'マイページ',
+    greeting: 'こんにちは、{name}',
+    greetingGeneric: 'こんにちは',
+    trend: '利用推移',
+    recentRequests: '最近のリクエスト',
+    viewAllLogs: 'すべて表示',
+    budget: '残り予算',
+    budgetRemaining: '残り {remaining} / 上限 {limit}',
+    noBudget: '上限は設定されていません',
   },
 }

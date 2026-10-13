@@ -8,6 +8,7 @@ import {
   Layers2,
   ScrollText,
   Settings2,
+  User,
 } from '@lucide/vue'
 
 import modernPageRoutes from '../../../../../internal/webui/modern_page_routes.json'
@@ -28,6 +29,14 @@ export const navigationItems = [
     path: pagePath('home'),
     section: 'workspace',
     icon: House,
+    adminOnly: false,
+  },
+  {
+    id: 'personal',
+    name: 'modern-personal',
+    path: pagePath('personal'),
+    section: 'workspace',
+    icon: User,
     adminOnly: false,
   },
   {

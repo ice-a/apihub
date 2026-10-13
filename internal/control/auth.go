@@ -45,8 +45,17 @@ type authLockedData struct {
 type authSessionResponse struct {
 	Authenticated bool                 `json:"authenticated"`
 	PrincipalType controlPrincipalType `json:"principal_type"`
+	// AccessKey 只对访问密钥会话返回，避免泄露管理员的访问密钥标识。
+	AccessKey *authSessionAccessKey `json:"access_key,omitempty"`
+	// CostLimitStatus 只对设有成本上限的访问密钥会话返回。
+	CostLimitStatus *AccessKeyCostLimitStatus `json:"cost_limit_status,omitempty"`
 	// RequestBodyRecording 只对开启请求内容记录的访问密钥返回，用于登录后的明确提示。
 	RequestBodyRecording *authSessionRequestBodyRecording `json:"request_body_recording,omitempty"`
+}
+
+type authSessionAccessKey struct {
+	ID   uint   `json:"id"`
+	Name string `json:"name"`
 }
 
 type authSessionRequestBodyRecording struct {
@@ -288,15 +297,29 @@ func (s *Server) handleAuthSession(c *gin.Context) {
 		writeServiceError(c, "auth_session", app_errors.ErrInternalServer)
 		return
 	}
-	response.SuccessI18n(
-		c,
-		"common.success",
-		authSessionResponse{
-			Authenticated:        true,
-			PrincipalType:        principal.Type,
-			RequestBodyRecording: s.requestBodyRecording(principal),
-		},
-	)
+	resp := authSessionResponse{
+		Authenticated:        true,
+		PrincipalType:        principal.Type,
+		RequestBodyRecording: s.requestBodyRecording(principal),
+	}
+	if principal.Type == controlPrincipalAccessKey && principal.AccessKeyID != 0 {
+		if s.service != nil && s.service.manager != nil {
+			if snapshot := s.service.manager.Current(); snapshot != nil {
+				if ak, exists := snapshot.AccessKeysByID[principal.AccessKeyID]; exists {
+					resp.AccessKey = &authSessionAccessKey{ID: ak.ID, Name: ak.Name}
+				}
+			}
+		}
+		if s.service != nil && s.service.accessQuota != nil && s.service.now != nil {
+			status := mapAccessKeyCostLimitStatus(
+				s.service.accessQuota.Snapshot(principal.AccessKeyID, s.service.now()),
+			)
+			if len(status.Rules) > 0 {
+				resp.CostLimitStatus = &status
+			}
+		}
+	}
+	response.SuccessI18n(c, "common.success", resp)
 }
 
 func (s *Server) requestBodyRecording(principal controlPrincipal) *authSessionRequestBodyRecording {

@@ -5,11 +5,20 @@ import { getAuthSession } from '@modern/api/auth'
 import { clearFrontendPreference } from '@shared/frontend/preference'
 import type { ApiClient } from '@shared/http/client'
 import { RequestCancelledError } from '@shared/http/errors'
-import type { AuthPrincipalType, AuthSessionPayload } from '@shared/http/types'
+import type {
+  AccessKeyCostLimitStatus,
+  AuthPrincipalType,
+  AuthSessionPayload,
+} from '@shared/http/types'
 import { authFailure, authRetrySeconds } from './auth-errors'
 
 interface RequestBodyRecording {
   retentionDays: number
+}
+
+interface AccessKeyIdentity {
+  id: number
+  name: string
 }
 
 // 只有访问密钥会话需要提示；管理员会话即使带有该字段也不展示。
@@ -17,6 +26,14 @@ function requestBodyRecording(session: AuthSessionPayload): RequestBodyRecording
   const recording = session.request_body_recording
   return session.principal_type === 'access_key' && recording
     ? { retentionDays: recording.retention_days }
+    : null
+}
+
+// 仅访问密钥会话携带成员身份；管理员会话返回 undefined。
+function accessKeyIdentity(session: AuthSessionPayload): AccessKeyIdentity | null {
+  const key = session.access_key
+  return session.principal_type === 'access_key' && key
+    ? { id: key.id, name: key.name }
     : null
 }
 
@@ -62,6 +79,10 @@ export function createAuthSession(deps: {
   const state = reactive({
     phase: (credential ? 'unvalidated' : 'anonymous') as AuthPhase,
     principalType: null as AuthPrincipalType | null,
+    // 访问密钥登录时的成员身份（姓名）。
+    accessKey: null as AccessKeyIdentity | null,
+    // 访问密钥设有成本上限时的预算状态。
+    costLimitStatus: null as AccessKeyCostLimitStatus | null,
     // 管理员为当前访问密钥开启请求内容记录时，记录内容的保留天数。
     requestBodyRecording: null as RequestBodyRecording | null,
     retryAfterSeconds: 0,
@@ -104,6 +125,8 @@ export function createAuthSession(deps: {
       .then((session) => {
         if (currentRevision !== revision || controller.signal.aborted) return
         state.principalType = session.principal_type
+        state.accessKey = accessKeyIdentity(session)
+        state.costLimitStatus = session.cost_limit_status ?? null
         state.requestBodyRecording = requestBodyRecording(session)
         state.phase = 'validated'
       })
@@ -141,6 +164,7 @@ export function createAuthSession(deps: {
     const session = await getAuthSession(deps.client, credential, signal, true)
     if (currentRevision === revision && state.phase === 'validated') {
       state.requestBodyRecording = requestBodyRecording(session)
+      state.costLimitStatus = session.cost_limit_status ?? null
     }
     return state.requestBodyRecording
   }
@@ -168,6 +192,8 @@ export function createAuthSession(deps: {
       storeCredential(remember ? deps.sessionStorage : deps.localStorage, '')
       storeCredential(remember ? deps.localStorage : deps.sessionStorage, candidate)
       state.principalType = session.principal_type
+      state.accessKey = accessKeyIdentity(session)
+      state.costLimitStatus = session.cost_limit_status ?? null
       state.requestBodyRecording = requestBodyRecording(session)
       state.retryAfterSeconds = 0
       state.phase = 'validated'
@@ -183,6 +209,8 @@ export function createAuthSession(deps: {
     getRevision: () => revision,
     hasCredential: () => credential.length > 0,
     getPrincipalType: () => state.principalType,
+    getAccessKey: () => state.accessKey,
+    getCostLimitStatus: () => state.costLimitStatus,
     ensureValidated,
     refreshRequestBodyRecording,
     login,

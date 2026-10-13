@@ -30,6 +30,8 @@ export function createModernRouter(
                   ? () => import('./features/groups/GroupsView.vue')
                   : item.id === 'accessKeys'
                     ? () => import('./features/access-keys/AccessKeysView.vue')
+                    : item.id === 'personal'
+                      ? () => import('./features/personal/PersonalHomeView.vue')
                     : item.id === 'logs'
                       ? () => import('./features/logs/LogsView.vue')
                       : item.id === 'usage'
@@ -103,7 +105,7 @@ export function createModernRouter(
     if (!to.meta.requiresAuth) return true
     if (!session.hasCredential()) return loginLocation(to.fullPath)
     if (to.meta.adminOnly && session.getPrincipalType() === 'access_key') {
-      return { name: 'modern-home' }
+      return { name: 'modern-personal' }
     }
     if (
       dateRangePresets.some((preset) => preset === to.query.preset) &&

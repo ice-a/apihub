@@ -13,6 +13,7 @@ import {
   AppTextField,
 } from '@modern/components/ui'
 import { safeRedirect } from '@modern/app/redirect'
+import { pagePath } from '@modern/app/navigation'
 import { RequestCancelledError } from '@shared/http/errors'
 import AuthCard from './AuthCard.vue'
 import LoginMascot from './LoginMascot.vue'
@@ -102,7 +103,11 @@ function toggleHelp(event: Event): void {
 async function continueToPage(): Promise<void> {
   navigationFailed.value = false
   try {
-    const failure = await router.replace(safeRedirect(route.query.redirect, router))
+    // 访问密钥登录后默认进入个人主页；管理员回退到总览。
+    const fallback =
+      session.getPrincipalType() === 'access_key' ? pagePath('personal') : undefined
+    const target = typeof route.query.redirect === 'string' ? route.query.redirect : fallback
+    const failure = await router.replace(safeRedirect(target, router))
     navigationFailed.value = isNavigationFailure(failure)
   } catch {
     navigationFailed.value = true
